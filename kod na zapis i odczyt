@@ -1,0 +1,29 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    // Zapisywanie do pliku
+    ofstream plik_do_zapisu("pati.txt");
+
+    if (plik_do_zapisu.is_open()) {
+        plik_do_zapisu << "plisss.\n";
+        plik_do_zapisu << "liczby" << "\n";
+        plik_do_zapisu.close();
+        cout << "Zapisano do pliku.\n";
+    }
+
+    // Odczytywanie z pliku
+    ifstream plik_do_odczytu("pati.txt");
+
+    if (plik_do_odczytu.is_open()) {
+        string linia;
+        while (getline(plik_do_odczytu, linia)) {
+            cout << linia << '\n';
+        }
+        plik_do_odczytu.close();
+    }
+    return 0;
+}
